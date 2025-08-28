@@ -25,15 +25,40 @@ cursor: pointer;
   font-size: 14px;
   color:grey;
   cursor: pointer;
-
+  transition: background-color 0.2s ease;
+}
+.sidebar .newchat:hover{
+  background-color: #d1d5db;
 }
 .sidebar .recent{
   display: flex;
   flex-direction: column;
 }
-.sidebar .recenttitle{
+.sidebar .recentHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 30px;
-  margin-bottom:20px;
+  margin-bottom: 20px;
+}
+.sidebar .recenttitle{
+  font-weight: 600;
+  color: #282828;
+  margin: 0;
+}
+.sidebar .clearAllBtn{
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+.sidebar .clearAllBtn:hover{
+  background-color: #ffebee;
+  color: #d32f2f;
 }
 
 .sidebar .recententry{
@@ -45,10 +70,44 @@ cursor: pointer;
   border-radius: 50px;
   color:#282828;
   cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
 }
 .sidebar .recententry:hover{
   background-color: #e2e6eb;
-
+}
+.sidebar .recententry.activeChat{
+  background-color: #d1d5db;
+  font-weight: 500;
+}
+.sidebar .chatInfo{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sidebar .timestamp{
+  font-size: 11px;
+  color: #888;
+  font-weight: 400;
+}
+.sidebar .deleteBtn{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+.sidebar .deleteBtn:hover{
+  background-color: #ffebee;
+  color: #d32f2f;
 }
 .sidebar .bottom{
   display: flex;

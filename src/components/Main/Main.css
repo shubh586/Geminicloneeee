@@ -16,6 +16,41 @@
   width:40px;
   border-radius: 50%;
 }
+.main .navTitle{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.main .currentChatTitle{
+  font-size: 14px;
+  color: #888;
+  font-weight: 400;
+}
+.main .navActions{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.main .newChatBtn{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #e6eaf1;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #585858;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.main .newChatBtn:hover{
+  background-color: #d1d5db;
+}
+.main .newChatBtn img{
+  width: 16px;
+  border-radius: 0;
+}
 .maincontainer{
   max-width:900px;
   margin:auto;
@@ -32,6 +67,12 @@
   -webkit-background-clip: text; 
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.main .welcomeSubtext{
+  font-size: 18px;
+  color: #888;
+  margin-top: 10px;
+  font-weight: 400;
 }
 .main .cards{
   display: grid;
@@ -115,6 +156,16 @@
   display:flex;
   align-items: center;
   gap:20px;
+}
+.resultInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.chatDate{
+  font-size: 12px;
+  color: #888;
+  font-weight: 400;
 }
 .result img{
   width:40px;

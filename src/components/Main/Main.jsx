@@ -5,7 +5,7 @@ import { Context } from "../../context/Context";
 import { useRef } from "react";
 
 const Main = () => {
-  const { onSent, recentPrompt, showResult, loading, resultData } =
+  const { onSent, recentPrompt, showResult, loading, resultData, startNewChat, currentChatId } =
     useContext(Context);
   const input = useRef();
 
@@ -13,8 +13,23 @@ const Main = () => {
     <>
       <div className="main">
         <div className="nav">
-          <p>Gemini</p>
-          <img src={assets.user_icon} alt="" />
+          <div className="navTitle">
+            <p>Gemini</p>
+            {currentChatId && (
+              <span className="currentChatTitle">
+                {recentPrompt.length > 30 ? recentPrompt.substring(0, 30) + '...' : recentPrompt}
+              </span>
+            )}
+          </div>
+          <div className="navActions">
+            {showResult && (
+              <button className="newChatBtn" onClick={startNewChat}>
+                <img src={assets.plus_icon} alt="" />
+                New Chat
+              </button>
+            )}
+            <img src={assets.user_icon} alt="" />
+          </div>
         </div>
         <div className="maincontainer">
           {!showResult ? (
@@ -23,7 +38,10 @@ const Main = () => {
                 <p>
                   <span>Hello, Dev</span>
                 </p>
-                <p>How can I help you today?</p>
+                <p>{currentChatId ? "How can I help you today?" : "Start a new conversation with Gemini"}</p>
+                {!currentChatId && (
+                  <p className="welcomeSubtext">Your conversations will appear in the sidebar</p>
+                )}
               </div>
               <div className="cards">
                 <div className="card">
@@ -53,7 +71,12 @@ const Main = () => {
             <div className="result">
               <div className="resulttitle">
                 <img src={assets.user_icon} alt="" />
-                <p>{recentPrompt}</p>
+                <div className="resultInfo">
+                  <p>{recentPrompt}</p>
+                  <span className="chatDate">
+                    {new Date().toLocaleDateString()}
+                  </span>
+                </div>
               </div>
 
               <div className="resultData">
